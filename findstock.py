@@ -522,6 +522,7 @@ for sto in stocks:
     except:
         continue
     if(checkfolder(sto)):
+        UpdateProccesed(sto, "noData", "proccessed.csv")    
         continue
     stock = Stock(sto, "data")
 
