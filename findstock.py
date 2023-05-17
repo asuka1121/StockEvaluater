@@ -493,6 +493,12 @@ def getSymbolFromList(filename):
         tempSym = dataframe.iloc[i, 0] 
         list.append(tempSym)
     return list
+def checkfolder(symbol):
+    folpath = f"data\{symbol}"
+    if len(os.listdir(folpath)) == 0:
+        return True
+    else:
+        return False
 import random
 
 #symlist = getallsymbol()
@@ -507,12 +513,15 @@ for i in range(5):
 print(stocks)
 
 """
+
 for sto in stocks:
     time.sleep(60)
     UpdateProccesed(sto, "proccessed", "proccessed.csv")
     try:
         getReportUS(sto, "data", AlphaVantageAPI)
     except:
+        continue
+    if(checkfolder(sto)):
         continue
     stock = Stock(sto, "data")
 
