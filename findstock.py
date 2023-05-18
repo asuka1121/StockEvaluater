@@ -193,7 +193,6 @@ def saveResult(record, file):
     with open(file, 'a', newline="") as csvfile:
         fieldnames  = ['stock', 'slope', 'avgpc','annualeps', 'annualroe', 'quarterlyeps','quarterlyrevenue', 'numfailed']
         writer = csv.DictWriter(csvfile,fieldnames=fieldnames, lineterminator="\n")
-        df = pd.read_csv(file) # or pd.read_excel(filename) for xls file
         
         writer.writeheader()
         writer.writerow(record)
