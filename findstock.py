@@ -194,8 +194,8 @@ def saveResult(record, file):
         fieldnames  = ['stock', 'slope', 'avgpc','annualeps', 'annualroe', 'quarterlyeps','quarterlyrevenue', 'numfailed']
         writer = csv.DictWriter(csvfile,fieldnames=fieldnames, lineterminator="\n")
         df = pd.read_csv(file) # or pd.read_excel(filename) for xls file
-        if(df.empty):
-            writer.writeheader()
+        
+        writer.writeheader()
         writer.writerow(record)
 #class for stock to hold all info for each stocks
 class Stock():
